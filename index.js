@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
   xml = mustache.render(xml, model);
 
   res.writeHead( 200, {'Content-Type': 'text/xml'} );
-  res.end(parsed);
+  res.end(xml);
 });
 
 server = app.listen(app.get('port'), function () {
