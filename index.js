@@ -9,6 +9,8 @@ var express  = require('express'),
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(express.urlencoded());
+
 // middleware - handles any digits
 app.use('/', function(req, res, next){
   if(req.query && req.query.digits){
@@ -35,9 +37,9 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res){
-  console.log(req);
-  if(req.query && req.query.digits){
-    var xml = fs.readFileSync('views/' + req.query.digits  + '.xml', 'utf-8');
+  console.log(req.body);
+  if(req.body && req.body.digits){
+    var xml = fs.readFileSync('views/' + req.body.digits  + '.xml', 'utf-8');
 
     res.writeHead( 200, {'Content-Type': 'text/xml'} );
     res.end(xml);
