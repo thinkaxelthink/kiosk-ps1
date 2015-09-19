@@ -1,0 +1,30 @@
+var express  = require('express'),
+    mustache = require('mustache'),
+    fs       = require('fs'),
+    app      = express(),
+    people   = {
+      '+17189267887': 'Axel Esquite'
+    },
+    server;
+
+app.get('/', function (req, res) {
+
+  var model = {
+    //name: people[res.From] || "Monkey"
+    name: "Monkey"
+  },
+  xml;
+
+  xml = fs.readFileSync('views/monkey.xml', 'utf-8');
+  xml = mustache.render(xml, model);
+
+  res.writeHead( 200, {'Content-Type': 'text/xml'} );
+  res.end(parsed);
+});
+
+server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+});

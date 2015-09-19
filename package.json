@@ -1,0 +1,16 @@
+{
+  "name": "kioskkiosk",
+  "version": "0.0.0",
+  "description": "A call-response menu",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "Axel Esquite",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.13.3",
+    "xml": "~1.0.0",
+    "mustache": "~2.1.3"
+  }
+}
