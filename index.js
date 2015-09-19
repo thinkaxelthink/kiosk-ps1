@@ -35,8 +35,13 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res){
-  res.writeHead( 200, {'Content-Type': 'text/xml'} );
-  res.end(xml);
+  console.log(req);
+  if(req.query && req.query.digits){
+    var xml = fs.readFileSync('views/' + req.query.digits  + '.xml', 'utf-8');
+
+    res.writeHead( 200, {'Content-Type': 'text/xml'} );
+    res.end(xml);
+  }
 });
 
 server = app.listen(app.get('port'), function () {
