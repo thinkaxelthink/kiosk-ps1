@@ -43,11 +43,16 @@ app.post('/', function(req, res){
       path, stat;
 
   if(req.body && req.body.Digits){
+
     path = 'views/' + req.body.Digits  + '.xml';
-    stat = fs.statSync(path);
-    if(stat.isFile()){
-      msg = fs.readFileSync(path, 'utf-8');
-    } else {
+
+    try {
+      stat = fs.statSync(path);
+
+      if(stat.isFile()){
+        msg = fs.readFileSync(path, 'utf-8');
+      }
+    } catch(e) {
       msg = mustache.render(fs.readFileSync('views/monkey.xml', 'utf-8'), model);
     }
   }
