@@ -11,7 +11,12 @@ app.set('port', (process.env.PORT || 5000));
 
 // middleware - handles any digits
 app.use('/', function(req, res, next){
-  console.log(req.query);
+  if(req.query && req.query.digits){
+    var xml = fs.readFileSync('views/' + req.query.digits  + '.xml', 'utf-8');
+
+    res.writeHead( 200, {'Content-Type': 'text/xml'} );
+    res.end(xml);
+  }
   next();
 });
 
@@ -29,7 +34,10 @@ app.get('/', function (req, res) {
   res.end(xml);
 });
 
-
+app.post('/', function(req, res){
+  res.writeHead( 200, {'Content-Type': 'text/xml'} );
+  res.end(xml);
+});
 
 server = app.listen(app.get('port'), function () {
   var host = server.address().address;

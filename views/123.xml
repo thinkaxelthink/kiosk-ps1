@@ -1,0 +1,13 @@
+<Response>
+  <Say>Let's open cans and bottles with joyful design pleasure of nostalgic wonderment, shan't we? The G-A-N-G-Y is red and oh-so-romantic. Would you be mine, sweetheart? You have no idea what I can cook with a couple of cans and a few good bottles. This is what you want if you only possess one cooking tool in your kitchen, although I am not sure why this would be the case. Cooking is an easy 1,2,3 with the G-A-N-G-Y.</Say>
+  <Say>CAN AND BOTTLE OPENER GANGY</Say>
+  <Say>3 by 2 inches</Say>
+  <Say>Powder Coated Steel</Say>
+  <Say>JAPAN</Say>
+  <Gather action="/" method="POST" finishOnKey="#">
+    <Say>
+      To hear another item description, press the item's I-D followed by the pound sign.  
+      Press any other key to start over.
+    </Say>
+  </Gather>
+</Response>
