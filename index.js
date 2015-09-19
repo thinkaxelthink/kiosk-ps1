@@ -39,12 +39,13 @@ app.get('/', function (req, res) {
 
 app.post('/', function(req, res){
   console.log(req.body);
-  if(req.body && req.body.digits){
-    var xml = fs.readFileSync('views/' + req.body.digits  + '.xml', 'utf-8');
-
-    res.writeHead( 200, {'Content-Type': 'text/xml'} );
-    res.end(xml);
+  var msg = '<Response><Say>Good bye</Say></Response>';
+  if(req.body && req.body.Digits){
+    msg = fs.readFileSync('views/' + req.body.Digits  + '.xml', 'utf-8');
   }
+
+  res.writeHead( 200, {'Content-Type': 'text/xml'} );
+  res.end(msg);
 });
 
 server = app.listen(app.get('port'), function () {
