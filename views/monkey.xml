@@ -1,13 +1,8 @@
 <Response>
-  <Say>Over time friends have asked us if we ever come across good hooks for the home. Now we have found a hook that holds your things just so. The wide support means no holes in your clothes that would result from a pointy hook. Save your clothes and go with a round and smooth style aluminum hook! Aluminum is a big industry in Portugal. Quite some time ago, when most western manufacturers abandoned aluminum for steel, Portugal couldn't afford the transition. Now that China controls most of the global steel production, almost all western steel manufacturers are closing down and Portugal enjoys being one of the few with their aluminum factories still standing.</Say>
-  <Say>ALUMINUM HOOK</Say>
-  <Say>2 point 5 inches by 2 point 5 inches by 2 inches</Say>
-  <Say>Aluminum</Say>
-  <Say>PORTUGAL</Say>
   <Gather action="/" method="POST" finishOnKey="#">
     <Say>
-      To hear another item description, press the item's I-D followed by the pound sign.  
-      Press any other key to start over.
+      Main menu. To hear an item description press the item's I-D followed by the pound sign.
+      Press any key to hear this message again.
     </Say>
   </Gather>
 </Response>

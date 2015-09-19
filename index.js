@@ -39,9 +39,17 @@ app.get('/', function (req, res) {
 
 app.post('/', function(req, res){
   console.log(req.body);
-  var msg = '<Response><Say>Good bye</Say></Response>';
+  var msg = '<Response><Say>Good bye</Say></Response>',
+      path, stat;
+
   if(req.body && req.body.Digits){
-    msg = fs.readFileSync('views/' + req.body.Digits  + '.xml', 'utf-8');
+    path = 'views/' + req.body.Digits  + '.xml';
+    stat = fs.statSync(path);
+    if(stat.isFile()){
+      msg = fs.readFileSync(path, 'utf-8');
+    } else {
+      msg = mustache.render(fs.readFileSync('views/monkey.xml', 'utf-8'), model);
+    }
   }
 
   res.writeHead( 200, {'Content-Type': 'text/xml'} );
