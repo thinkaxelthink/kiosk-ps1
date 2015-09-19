@@ -25,16 +25,10 @@ app.use('/', function(req, res, next){
 
 app.get('/', function (req, res) {
 
-  var model = {
-    name: people[req.query.From] || "Monkey"
-  },
-  xml;
-
-  xml = fs.readFileSync('views/monkey.xml', 'utf-8');
-  xml = mustache.render(xml, model);
+  var msg = getMessage('intro');
 
   res.writeHead( 200, {'Content-Type': 'text/xml'} );
-  res.end(xml);
+  res.end(msg);
 });
 
 app.post('/', function(req, res){
@@ -43,18 +37,7 @@ app.post('/', function(req, res){
       path, stat;
 
   if(req.body && req.body.Digits){
-
-    path = 'views/' + req.body.Digits  + '.xml';
-
-    try {
-      stat = fs.statSync(path);
-
-      if(stat.isFile()){
-        msg = fs.readFileSync(path, 'utf-8');
-      }
-    } catch(e) {
-      msg = mustache.render(fs.readFileSync('views/monkey.xml', 'utf-8'), model);
-    }
+    msg = getMessage(req.body.Digits);
   }
 
   res.writeHead( 200, {'Content-Type': 'text/xml'} );
@@ -67,3 +50,22 @@ server = app.listen(app.get('port'), function () {
 
   console.log('Example app listening at http://%s:%s', host, port);
 });
+
+function getMessage(file_name){
+  var stat,
+      msg,
+      intro = 'views/intro.xml',
+      path = 'views/' + file_name + '.xml';
+
+  try {
+    stat = fs.statSync(path);
+
+    if(stat.isFile()){
+      msg = fs.readFileSync(path, 'utf-8');
+    }
+  } catch(e) {
+    msg = mustache.render(fs.readFileSync(intro, 'utf-8'));
+  }
+
+  return msg;
+}

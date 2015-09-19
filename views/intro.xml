@@ -2,7 +2,7 @@
   <Gather action="/" method="POST" finishOnKey="#">
     <Say>
       Main menu. To hear an item description press the item's I-D followed by the pound sign.
-      Press any key to hear this message again.
+      To hear this message again, only press the pound sign.
     </Say>
   </Gather>
 </Response>
