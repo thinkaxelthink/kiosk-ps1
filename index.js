@@ -12,8 +12,7 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/', function (req, res) {
 
   var model = {
-    //name: people[res.From] || "Monkey"
-    name: "Monkey"
+    name: people[req.query.From] || "Monkey"
   },
   xml;
 
