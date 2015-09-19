@@ -7,6 +7,8 @@ var express  = require('express'),
     },
     server;
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/', function (req, res) {
 
   var model = {
@@ -22,7 +24,7 @@ app.get('/', function (req, res) {
   res.end(parsed);
 });
 
-server = app.listen(3000, function () {
+server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
 
