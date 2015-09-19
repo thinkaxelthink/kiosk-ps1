@@ -1,9 +1,8 @@
 <Response>
-  <Say>Hello {{name}}.</Say>
-  <Play>http://demo.twilio.com/hellomonkey/monkey.mp3</Play>
+  <Say>Over time friends have asked us if we ever come across good hooks for the home. Now we have found a hook that holds your things just so. The wide support means no holes in your clothes that would result from a pointy hook. Save your clothes and go with a round and smooth style aluminum hook! Aluminum is a big industry in Portugal. Quite some time ago, when most western manufacturers abandoned aluminum for steel, Portugal couldn't afford the transition. Now that China controls most of the global steel production, almost all western steel manufacturers are closing down and Portugal enjoys being one of the few with their aluminum factories still standing.</Say>
   <Gather numDigits="1" action="hello-monkey-handle-key.php" method="POST">
     <Say>
-      To speak with a real monkey, press 1.  
+      To speak with a real {{name}}, press 1.  
       Press 2 to record your own monkey howl.  
       Press any other key to start over.
     </Say>
