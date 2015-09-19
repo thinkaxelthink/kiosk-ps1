@@ -8,7 +8,7 @@
   <Gather action="/" method="POST" finishOnKey="#">
     <Say>
       To hear another item description, press the item's I-D followed by the pound sign.  
-      Press any other key to start over.
+      For main menu, press 0 and the pound sign.
     </Say>
   </Gather>
 </Response>
