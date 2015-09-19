@@ -9,6 +9,12 @@ var express  = require('express'),
 
 app.set('port', (process.env.PORT || 5000));
 
+// middleware - handles any digits
+app.use('/', function(req, res, next){
+  console.log(req.query);
+  next();
+});
+
 app.get('/', function (req, res) {
 
   var model = {
@@ -22,6 +28,8 @@ app.get('/', function (req, res) {
   res.writeHead( 200, {'Content-Type': 'text/xml'} );
   res.end(xml);
 });
+
+
 
 server = app.listen(app.get('port'), function () {
   var host = server.address().address;
