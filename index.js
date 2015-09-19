@@ -1,4 +1,5 @@
 var express  = require('express'),
+    bodyParser = require('body-parser'),
     mustache = require('mustache'),
     fs       = require('fs'),
     app      = express(),
@@ -9,7 +10,7 @@ var express  = require('express'),
 
 app.set('port', (process.env.PORT || 5000));
 
-app.use(express.urlencoded());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // middleware - handles any digits
 app.use('/', function(req, res, next){
