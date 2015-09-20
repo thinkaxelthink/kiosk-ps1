@@ -32,7 +32,6 @@ app.get('/', function (req, res) {
 });
 
 app.post('/', function(req, res){
-  console.log(req.body);
   var msg = '<Response><Say>Good bye</Say></Response>',
       path, stat;
 
