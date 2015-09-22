@@ -12,6 +12,7 @@
   <Pause length="1"/>
   <Say>The Vredenbregt house in Rotterdam must have one of these. Note! the felt insulation that wraps around the ceramic pot which sits inside the metal holder. Wait, wait. The ceramic pot sits inside the metal holder, which is lined in wool felt to keep the ceramic pot, and therefore the tea, warm? CONFUSED? I AM TOO. But, I'm dazzled. Comes in two sizes- the large is better for long, rainy day conversations and the small for a quick morning fix.</Say>
   <Gather action="/" method="POST" finishOnKey="#">
+    <Play>https://kioskkiosk.herokuapp.com/sounds/bell.mp3</Play>
     <Say>
       To hear another item description, press the item's I-D followed by the pound sign.  
       For main menu, press 0 and the pound sign.
