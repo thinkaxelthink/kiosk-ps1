@@ -1,10 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <Response>
-  <Say>The Vredenbregt house in Rotterdam must have one of these. Note! the felt insulation that wraps around the ceramic pot which sits inside the metal holder. Wait, wait. The ceramic pot sits inside the metal holder, which is lined in wool felt to keep the ceramic pot, and therefore the tea, warm? CONFUSED? I AM TOO. But, I'm dazzled. Comes in two sizes- the large is better for long, rainy day conversations and the small for a quick morning fix.</Say>
   <Say>DUTCH TEAPOT</Say>
+  <Pause length="2"/>
   <Say>11 inches by 7 and a half inches by 7 and a half inches and 1.3 Liters Large</Say>
+  <Pause length="1"/>
   <Say>10" X 6.5" X 6.5" / 0.9L (Small)</Say>
+  <Pause length="1"/>
   <Say>Steel, Felt and Ceramic</Say>
+  <Pause length="1"/>
   <Say>THE NETHERLANDS</Say>
+  <Pause length="1"/>
+  <Say>The Vredenbregt house in Rotterdam must have one of these. Note! the felt insulation that wraps around the ceramic pot which sits inside the metal holder. Wait, wait. The ceramic pot sits inside the metal holder, which is lined in wool felt to keep the ceramic pot, and therefore the tea, warm? CONFUSED? I AM TOO. But, I'm dazzled. Comes in two sizes- the large is better for long, rainy day conversations and the small for a quick morning fix.</Say>
   <Gather action="/" method="POST" finishOnKey="#">
     <Say>
       To hear another item description, press the item's I-D followed by the pound sign.  
