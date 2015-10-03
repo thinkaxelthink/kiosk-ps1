@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+  <Say>{{name}}</Say>
+  <Pause length="1"/>
+  {{#variants}}
+    {{#dimensions}}
+    <Say>{{measurement}} by {{measurement}} inches</Say>
+    <Pause length="1"/>
+    {{/dimensions}}
+  {{/variants}}
+</Response>
