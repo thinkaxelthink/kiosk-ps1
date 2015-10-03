@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
   <Gather action="/" method="POST" finishOnKey="#">
-    <Say>Main menu. To hear an item description press the item's I-D followed by the pound sign. To hear this message again, press 0 and the pound sign.</Say>
+    <Say>To hear an item description enter the code of item followed by the pound sign. Press 2 and pound to hear about kiosk. 3 and pound for our audio guide credits. 4 pound for today's news. 5 and pound for birdsong. To hear this message again, press 0 and the pound sign.</Say>
   </Gather>
 </Response>

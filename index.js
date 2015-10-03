@@ -30,7 +30,10 @@ function middleware(req, res, next){
   if(req.body && req.body.Digits){
     db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
 
-      msg = getMessage(result[0]);
+
+      msg = getMessage(_.extend(result[0], {
+        bell_path: process.env.HEROKU_URL + '/sounds/bell.mp3'
+      }));
 
       sendResponse(res, msg);
 
