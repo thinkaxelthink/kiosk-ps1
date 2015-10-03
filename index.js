@@ -3,69 +3,65 @@ var express  = require('express'),
     mustache = require('mustache'),
     fs       = require('fs'),
     app      = express(),
-    people   = {
-      '+17189267887': 'Axel Esquite'
-    },
-    server;
+    mongo    = require('./lib/db'),
+    server, db;
 
-app.set('port', (process.env.PORT || 5000));
+db = new mongo({
+  uri: process.env.MONGOLAB_URI || 'mongodb://localhost/kiosk'
+}).connect();
 
+app.set('port', process.env.PORT || 5000);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // middleware - handles any digits
-app.use('/', function(req, res, next){
-  if(req.query && req.query.digits){
-    var xml = fs.readFileSync('views/' + req.query.digits  + '.xml', 'utf-8');
-
-    res.writeHead( 200, {'Content-Type': 'text/xml'} );
-    res.end(xml);
-  }
-  next();
-});
-
-app.get('/', function (req, res) {
-
-  var msg = getMessage('intro');
-
-  res.writeHead( 200, {'Content-Type': 'text/xml'} );
-  res.end(msg);
-});
-
-app.post('/', function(req, res){
-  var msg = '<Response><Say>Good bye</Say></Response>',
-      path, stat;
-
-  if(req.body && req.body.Digits){
-    msg = getMessage(req.body.Digits);
-  }
-
-  res.writeHead( 200, {'Content-Type': 'text/xml'} );
-  res.end(msg);
-});
+app.use('/', middleware);
 
 server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('App listening at http://%s:%s', host, port);
 });
 
-function getMessage(file_name){
-  var stat,
-      msg,
-      intro = 'views/intro.xml',
-      path = 'views/' + file_name + '.xml';
+function middleware(req, res, next){
+  var msg = '';
 
-  try {
-    stat = fs.statSync(path);
+  if(req.body && req.body.Digits){
+    db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
 
-    if(stat.isFile()){
-      msg = fs.readFileSync(path, 'utf-8');
-    }
-  } catch(e) {
-    msg = mustache.render(fs.readFileSync(intro, 'utf-8'));
+      msg = getMessage(result[0]);
+
+      sendResponse(res, msg);
+
+      next(); 
+    });
+  } else {
+    // render main menu
+    msg = getMessage();
+
+    sendResponse(res, msg);
+
+    next(); 
+  }
+}
+
+function sendResponse(res, msg) {
+  res.writeHead( 200, {'Content-Type': 'text/xml'} );
+  res.end(msg);
+}
+
+function getMessage(data) {
+  var xml;
+
+  if(data){
+    xml = mustache.render(
+      fs.readFileSync('views/response.xml', 'utf-8'),
+      data
+    );
+  } else {
+    xml = fs.readFileSync('views/intro.xml', 'utf-8');
   }
 
-  return msg;
+  return xml;
 }
