@@ -25,26 +25,43 @@ server = app.listen(app.get('port'), function () {
 });
 
 function middleware(req, res, next){
+  var msg = '';
 
   if(req.body && req.body.Digits){
     db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
-      var msg;
 
-      msg = mustache.render(
-        fs.readFileSync('views/response.xml', 'utf-8'),
-        result[0]
-      );
+      msg = getMessage(result[0]);
 
-      res.writeHead( 200, {'Content-Type': 'text/xml'} );
-      res.end(msg);
+      sendResponse(res, msg);
+
       next(); 
     });
   } else {
     // render main menu
-    msg = fs.readFileSync('views/intro.xml', 'utf-8');
+    msg = getMessage();
 
-    res.writeHead( 200, {'Content-Type': 'text/xml'} );
-    res.end(msg);
+    sendResponse(res, msg);
+
     next(); 
   }
+}
+
+function sendResponse(res, msg) {
+  res.writeHead( 200, {'Content-Type': 'text/xml'} );
+  res.end(msg);
+}
+
+function getMessage(data) {
+  var xml;
+
+  if(data){
+    xml = mustache.render(
+      fs.readFileSync('views/response.xml', 'utf-8'),
+      data
+    );
+  } else {
+    xml = fs.readFileSync('views/intro.xml', 'utf-8');
+  }
+
+  return xml;
 }
