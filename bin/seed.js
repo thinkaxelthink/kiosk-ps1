@@ -3,7 +3,7 @@ var m = require('./../lib/db'),
     obj;
 
 try {
-  obj = JSON.parse(fs.readFileSync(__dirname + '/objects.json'))
+  obj = JSON.parse(fs.readFileSync(__dirname + '/kiosk_products.json'))
 } catch(e) {
   console.error('Failed to load and parse objects JSON', e);
 }
@@ -19,6 +19,7 @@ db.collection.remove({}, function(err) {
 });
 
 obj.forEach(function(val, idx, arr){
+  val.twilio_id = idx;
   db.create(val).save(onSave);
 });
 

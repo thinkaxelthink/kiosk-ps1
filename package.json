@@ -16,6 +16,8 @@
   },
   "devDependencies": {
     "mongoose": "~4.1.8",
-    "lodash": "~3.10.1"
+    "lodash": "~3.10.1",
+    "request": "~2.64.0",
+    "chalk": "~1.1.1"
   }
 }
