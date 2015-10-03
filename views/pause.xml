@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+	  <Gather action="/" method="POST" finishOnKey="#" timeout="">
+
+		<Say>To unpause enter the code of your next item followed by the pound sign.</Say>
+		<Play>{{music_path}}</Play>
+	</Gather>
+</Response>
