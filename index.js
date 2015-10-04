@@ -2,6 +2,7 @@ var express  = require('express'),
     bodyParser = require('body-parser'),
     mustache = require('mustache'),
     fs       = require('fs'),
+    _        = require('lodash'),
     app      = express(),
     mongo    = require('./lib/db'),
     server, db;
@@ -28,9 +29,15 @@ function middleware(req, res, next){
   var msg = '';
 
   if(req.body && req.body.Digits){
+    console.log('Received => '+ req.body.Digits);
     db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
 
-      msg = getMessage(result[0]);
+      console.log('Found Record => ', result[0]);
+
+      msg = getMessage(_.extend(result[0], {
+        bell_path: process.env.HEROKU_URL + '/sounds/bell.mp3',
+        music_path: process.env.HEROKU_URL + '/sounds/bell.mp3'
+      }));
 
       sendResponse(res, msg);
 
