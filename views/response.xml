@@ -5,9 +5,9 @@
     <Pause length="1"/>
     <Say>{{provenance}}</Say>
     <Pause length="1"/>
-    <Say>{{description}}</Say>
-    <Play>{{bell_path}}</Play>
-    <Say>When you're ready, enter the code of your   next item followed by the pound sign. Press 0 and pound for more options. We'll wait.</Say>
-    <Play>{{music_path}}</Play>
+    <Say>{{{description}}}</Say>
+    <Play>{{{bell_path}}}</Play>
+    <Say>When you're ready, enter the code of your next item followed by the pound sign. Press 0 and pound for more options. We'll wait.</Say>
+    <Play>{{{music_path}}}</Play>
   </Gather>
 </Response>
