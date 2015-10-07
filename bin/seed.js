@@ -19,7 +19,7 @@ db.collection.remove({}, function(err) {
 });
 
 obj.forEach(function(val, idx, arr){
-  val.twilio_id = idx;
+  val.twilio_id = idx + 1000;
   db.create(val).save(onSave);
 });
 

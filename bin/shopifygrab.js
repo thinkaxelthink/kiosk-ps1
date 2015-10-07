@@ -69,7 +69,7 @@ function writeProducts(products) {
 		if(err){
 			console.log(chalk.red('Error: kioskkiosk > json \n\n'), err);
 		} else {
-			console.log(chalk.green('Done'));
+			console.log(chalk.green('Done writing ', products.length, ' Documents'));
 		}
 	});
 }
