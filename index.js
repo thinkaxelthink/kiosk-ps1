@@ -30,14 +30,19 @@ function middleware(req, res, next){
 
   if(req.body && req.body.Digits){
     console.log('Received => '+ req.body.Digits);
+
     db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
 
-      console.log('Found Record => ', result[0]);
+//      console.log('Found Record => ', result[0]);
 
-      msg = getMessage(_.extend(result[0], {
+      var model = _.defaults(result[0] || getMenuOptionTargets(req.body.Digits), {
+        is_kiosk_object: true,
         bell_path: process.env.HEROKU_URL + '/sounds/bell.mp3',
-        music_path: process.env.HEROKU_URL + '/sounds/bell.mp3'
-      }));
+        pause_music_path: process.env.HEROKU_URL + '/sounds/popcorn.mp3',
+        birdsong_path: process.env.HEROKU_URL + '/sounds/birdsong.mp3'
+      })
+      
+      msg = getMessage(model);
 
       sendResponse(res, msg);
 
@@ -50,6 +55,23 @@ function middleware(req, res, next){
     sendResponse(res, msg);
 
     next(); 
+  }
+}
+
+function getMenuOptionTargets(digits){
+  var targets = [null, null,
+      'about.xml',
+      'credits.xml',
+      'news.xml',
+      'birdsong.xml',
+  ], template;
+
+  if(targets[digits]){
+    template = fs.readFileSync('views/' + targets[digits], 'utf-8');
+
+    return {is_kiosk_object: false, menu_option: template};
+  } else {
+    return null;
   }
 }
 

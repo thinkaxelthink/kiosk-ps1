@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
   <Gather action="/" method="POST" finishOnKey="#" timeout="120">
+    {{#is_kiosk_object}}
     <Say>{{title}}</Say>
     <Pause length="1"/>
     <Say>{{provenance}}</Say>
     <Pause length="1"/>
     <Say>{{{description}}}</Say>
+    <Pause length="1"/>
     <Play>{{{bell_path}}}</Play>
+    {{/is_kiosk_object}}
+
+    {{^is_kiosk_object}}
+      {{{menu_option}}}
+    <Pause length="1"/>
+    {{/is_kiosk_object}}
     <Say>When you're ready, enter the code of your next item followed by the pound sign. Press 0 and pound for more options. We'll wait.</Say>
-    <Play>{{{music_path}}}</Play>
+    <Pause length="1"/>
+    <Play>{{{pause_music_path}}}</Play>
   </Gather>
 </Response>
