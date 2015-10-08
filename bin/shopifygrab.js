@@ -60,11 +60,12 @@ function parseBody(body_html){
   heads = (parts) ? parts.shift() : null;
   return {
     provenance: (heads) ? heads.split(/<br ?\/?>/gmi).pop().trim() : null,
-    description: (parts) ? parts.join('\n').replace(/<[^>]+>/gmi,' ').trim() : null
+    description: (parts) ? parts.join('\n\n').replace(/<[^>]+>/gmi,' ').trim() : null
   }
 }
 
 function writeProducts(products) {
+	products.sort(function(a,b){return a.id - b.id});
 	fs.writeFile(process.env.PRODUCT_JSON_PATH, JSON.stringify(products), 'utf-8', function(err){
 		if(err){
 			console.log(chalk.red('Error: kioskkiosk > json \n\n'), err);
