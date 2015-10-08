@@ -60,7 +60,7 @@ function parseBody(body_html){
   heads = (parts) ? parts.shift() : null;
   return {
     provenance: (heads) ? heads.split(/<br ?\/?>/gmi).pop().trim() : null,
-    description: (parts) ? parts.join('\n').replace(/<[^>]+>/gmi,'').trim() : null
+    description: (parts) ? parts.join('\n').replace(/<[^>]+>/gmi,' ').trim() : null
   }
 }
 
