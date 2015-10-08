@@ -15,13 +15,13 @@ function runForCover(n){
 function onResponse(err, res, body){
 	if(!err && res.statusCode == 200){
 		var obj = JSON.parse(body);
-		
+
 		all_products.push(_.map(obj.products, getBodyHtml));
 
 		if(all_products.length >= total_pages) {
 		 	writeProducts(_.flatten(all_products));
 		}
-		
+
 	} else {
 		console.log(err || res.statusCode);
 	}
@@ -43,24 +43,24 @@ function getBodyHtml(product, idx, arr) {
 			console.log(chalk.yellow('id# ', product.id));
 			console.log(chalk.blue(doc.provenance));
 			console.log(chalk.blue(doc.description));
-			console.log(chalk.yellow('======================='));	
+			console.log(chalk.yellow('======================='));
 		}
 	}else{
 		console.log(chalk.yellow(product.title + ', #' + product.id + ' has an NO body'));
 	}
-	
+
 	return doc;
 }
 
 function parseBody(body_html){
   var parts, heads;
 
-  parts = (body_html) ? body_html.replace(/<\/?(?!p|br)[^>]+>/g,'').split(/<p[^>]*>/) : null;
+  parts = (body_html) ? body_html.replace(/<\/?(?!p|br)[^>]+>/gmi,'').split(/<p[^>]*>/) : null;
   parts.shift();
   heads = (parts) ? parts.shift() : null;
   return {
-    provenance: (heads) ? heads.split(/<br ?\/?>/gi).pop().trim() : null,
-    description: (parts) ? parts.join('\n').replace(/<[^>]+>/,'').trim() : null
+    provenance: (heads) ? heads.split(/<br ?\/?>/gmi).pop().trim() : null,
+    description: (parts) ? parts.join('\n').replace(/<[^>]+>/gmi,'').trim() : null
   }
 }
 
