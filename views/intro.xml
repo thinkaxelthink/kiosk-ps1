@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
   <Gather action="/" method="POST" finishOnKey="#">
-    <Say>To hear an item description enter the code of item followed by the pound sign. Press 2 and pound to hear about kiosk. 3 and pound for our audio guide credits. 4 pound for today's news. 5 and pound for birdsong. To hear this message again, press 0 and the pound sign.</Say>
+    <Say>
+      Hi! To hear me read an items description enter the code of it followed by the pound sign.
+      2 pound to hear what kiosk is about.
+      3 pound for the credits of this.
+      4 pound for today's news.
+      To repeat press 0 and the pound sign.</Say>
   </Gather>
 </Response>
