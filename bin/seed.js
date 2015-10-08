@@ -3,7 +3,7 @@ var m = require('./../lib/db'),
     obj;
 
 try {
-  obj = JSON.parse(fs.readFileSync(__dirname + '/kiosk_products.json'))
+  obj = JSON.parse(fs.readFileSync(process.env.PRODUCT_JSON_PATH || __dirname + '/kiosk_products.json'))
 } catch(e) {
   console.error('Failed to load and parse objects JSON', e);
 }
