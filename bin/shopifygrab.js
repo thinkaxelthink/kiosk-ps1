@@ -32,6 +32,9 @@ function getBodyHtml(product, idx, arr) {
 	var doc = {
 			title: product.title,
 			id: product.id,
+			handle: product.handle,
+			images: product.images,
+			product_type: product.product_type
 		};
 
 	if(product.body_html){
