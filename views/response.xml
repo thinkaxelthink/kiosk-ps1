@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
-  <Gather action="/" method="POST" finishOnKey="#" timeout="120">
+  <Gather method="POST" finishOnKey="#" timeout="120">
     {{#is_kiosk_object}}
     <Say>{{title}}</Say>
     <Pause length="1"/>

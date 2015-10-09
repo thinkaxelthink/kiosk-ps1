@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 // middleware - handles any digits
-app.use('/', middleware);
+app.use('/twilio', handle_twilio);
 
 server = app.listen(app.get('port'), function () {
   var host = server.address().address;
@@ -25,7 +25,7 @@ server = app.listen(app.get('port'), function () {
   console.log('App listening at http://%s:%s', host, port);
 });
 
-function middleware(req, res, next){
+function handle_twilio(req, res, next){
   var msg = '';
 
   if(req.body && req.body.Digits){
@@ -41,12 +41,12 @@ function middleware(req, res, next){
         pause_music_path: process.env.HEROKU_URL + '/sounds/popcorn.mp3',
         birdsong_path: process.env.HEROKU_URL + '/sounds/birdsong.mp3'
       })
-      
+
       msg = getMessage(model);
 
       sendResponse(res, msg);
 
-      next(); 
+      next();
     });
   } else {
     // render main menu
@@ -54,7 +54,7 @@ function middleware(req, res, next){
 
     sendResponse(res, msg);
 
-    next(); 
+    next();
   }
 }
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
-  <Gather action="/" method="POST" finishOnKey="#" timeout="15">
+  <Gather method="POST" finishOnKey="#" timeout="15">
     <Say>
       Hi! To hear me read an items description enter the code of it followed by the pound sign.
     </Say>
