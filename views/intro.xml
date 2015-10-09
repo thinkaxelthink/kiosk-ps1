@@ -2,13 +2,13 @@
 <Response>
   <Gather method="POST" finishOnKey="#" timeout="15">
     <Say>
-      Hi! To hear me read an items description enter the code of it followed by the pound sign.
+      Hey! To hear me read an items description enter the code of it followed by the pound sign.
     </Say>
       <Pause length="1"/>
       <Say>
       2 and pound to hear what kiosk is about.
       3 pound for the credits of this.
-      4 pound for today's news.
+      <!-- 4 pound for today's news. -->
       To repeat press 0 and the pound sign.
     </Say>
   </Gather>

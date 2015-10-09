@@ -18,6 +18,14 @@ app.use(express.static('public'));
 // middleware - handles any digits
 app.use('/twilio', handle_twilio);
 
+app.get('/',function(req,res,next){
+
+  if(req.params.Digits){
+
+  }
+  res.send(mustache.render(fs.readFileSync('views/_product.html'),data))
+})
+
 server = app.listen(app.get('port'), function () {
   var host = server.address().address;
   var port = server.address().port;
