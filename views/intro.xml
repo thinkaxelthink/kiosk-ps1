@@ -3,11 +3,11 @@
   <Gather method="POST" finishOnKey="#" timeout="15">
     <Pause length="1"/>
     <Say>
-      The number, the number, the item number. Enter it. Follow it. By the pound sign. The pound sign. 
+      The number, the item number. It's next to the thing. Enter it and follow it by the pound sign.
     </Say>
       <Pause length="3"/>
       <Say>
-      Two, number two, with the pound sign. It's about KIOSK.
+      Or dial two, number two, with the pound sign. It's about KIOSK.
       <Pause length="1"/>
       Three is for credit. Credit for this, not for your house.
       <Pause length="1"/>
