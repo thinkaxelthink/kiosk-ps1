@@ -2,7 +2,7 @@
 <Response>
 	  <Gather method="POST" finishOnKey="#" timeout="">
 
-		<Say>To unpause enter the code of your next item followed by pound.</Say>
+		<Say>To un pause enter the code of your next item followed by pound.</Say>
 		<Play>{{music_path}}</Play>
 	</Gather>
 </Response>

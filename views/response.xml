@@ -15,7 +15,7 @@
       {{{menu_option}}}
     <Pause length="1"/>
     {{/is_kiosk_object}}
-    <Say>When you're ready, enter the code of your next item followed by the pound sign. Press 0 and pound for more options. We'll wait.</Say>
+    <Say>When you're ready, dial another item number and pound. I'll wait for a bit. Or zero and pound to hear me repeat what I said in the beginning of your call. It's like the main menu. That zero. </Say>
     <Pause length="1"/>
     <Play>{{{pause_music_path}}}</Play>
   </Gather>

@@ -15,13 +15,13 @@ app.set('port', process.env.PORT || 5000);
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-// middleware - handles any digits
 app.use('/twilio', handle_twilio);
 
 app.get('/',function(req,res,next){
 
+  var data = {}
   if(req.params.Digits){
-
+    data.digits = eq.params.Digits;
   }
   res.send(mustache.render(fs.readFileSync('views/_product.html'),data))
 })
@@ -41,7 +41,9 @@ function handle_twilio(req, res, next){
 
     db.collection.find({twilio_id: req.body.Digits}).exec(function(err, result){
 
-//      console.log('Found Record => ', result[0]);
+      //      console.log('Found Record => ', result[0]);
+
+      if(err) return handleError(err, req, res);
 
       var model = _.defaults(result[0] || getMenuOptionTargets(req.body.Digits), {
         is_kiosk_object: true,
@@ -101,4 +103,10 @@ function getMessage(data) {
   }
 
   return xml;
+}
+
+function handleError(err, req, res){
+  msg = fs.readFileSync('views/error.xml', 'utf-8');
+  console.log("EROR:", err, req);
+  sendResponse(res, msg);
 }

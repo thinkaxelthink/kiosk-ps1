@@ -4,3 +4,4 @@
 /node_modules
 bin/*.json
 kioskobjects.json
+*.csv
