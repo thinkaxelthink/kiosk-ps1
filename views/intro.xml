@@ -3,15 +3,15 @@
   <Gather method="POST" finishOnKey="#" timeout="15">
     <Pause length="1"/>
     <Say>
-      The number, the item number. It's next to the thing. Enter it and follow it by the pound sign.
+      Hello visitor. Enter the item number next to the thing followed by the pound sign, and I'll tell you a story.
     </Say>
       <Pause length="3"/>
       <Say>
-      Or dial two, number two, with the pound sign. It's about KIOSK.
+      Or dial two, and pound. It's about KIOSK.
       <Pause length="1"/>
       Three is for credit. Credit for this, not for your house.
       <Pause length="1"/>
-      Repeat? Hit zero. Still with a pound sign. Zero pound. Weight less so to speak.
+      Repeat? Hit zero. Still with a pound sign. Zero pound. Weightless so to speak.
     </Say>
   </Gather>
 </Response>
