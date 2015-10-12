@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Response>
+  <Gather method="POST" finishOnKey="#" timeout="60">
+    <Pause length="1"/>
+    <Say>
+      Ouch! Something went boom. Sorry. Try it again, or try another item. Did I say I am sorry?
+    </Say>
+  </Gather>
+</Response>
