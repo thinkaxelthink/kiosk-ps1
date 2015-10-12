@@ -3,7 +3,7 @@
   <Gather method="POST" finishOnKey="#" timeout="15">
     <Pause length="1"/>
     <Say>
-      Hello visitor. Enter the item number, followed by the pound sign, and I'll tell you a story.
+      Hello visitor. Enter the item number, followed by the pound sign, and I will tell you a story.
     </Say>
       <Pause length="3"/>
       <Say>
