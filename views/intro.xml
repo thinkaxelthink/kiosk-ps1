@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Response>
   <Gather method="POST" finishOnKey="#" timeout="15">
+    <Pause length="1"/>
     <Say>
-      Hi! To hear me read an items description enter the code of it followed by the pound sign.
+      Hello visitor. Enter the item number, followed by the pound sign, and I will tell you a story.
     </Say>
-      <Pause length="1"/>
+      <Pause length="3"/>
       <Say>
-      2 and pound to hear what kiosk is about.
-      3 pound for the credits of this.
-      4 pound for today's news.
-      To repeat press 0 and the pound sign.
+      Or dial two, and pound. It's about KIOSK.
+      <Pause length="1"/>
+      Three is for credit. Credit for this, not for your house.
+      <Pause length="1"/>
+      Repeat? Hit zero. Still with a pound sign. Zero pound. Weightless so to speak.
     </Say>
   </Gather>
 </Response>
